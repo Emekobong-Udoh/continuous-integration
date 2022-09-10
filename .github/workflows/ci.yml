@@ -1,4 +1,14 @@
-   - name: Run markdown lint
-     run: |
-       npm install remark-cli remark-preset-lint-consistent
-       npx remark . --use remark-preset-lint-consistent --frail
+name: Fix error in ci branch
+on:
+  push:
+    branches:
+      - ci
+
+jobs:
+  Fix-error:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Run markdown lint
+        run: |
+          npm install remark-cli remark-preset-lint-consistent
+          npx remark . --use remark-preset-lint-consistent --frail
